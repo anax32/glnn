@@ -1,20 +1,4 @@
-#pragma comment (lib, "opengl32.lib")
-#ifdef _DEBUG
-#pragma comment (lib, "zlibstaticd.lib")
-#pragma comment (lib, "libpng16_staticd.lib")
-#else
-#pragma comment (lib, "zlibstatic.lib")
-//#pragma comment (lib, "libpng16_static.lib")
-#endif
-#pragma comment (lib, "glew32s.lib")
-
-#pragma comment(lib, "cuda.lib")
-#pragma comment(lib, "cudart.lib")
-#pragma comment(lib, "cublas.lib")
-
 #define NOMINMAX
-#include <Windows.h>
-#include <wingdi.h>
 
 #include <cuda.h>
 #include <cuda_runtime_api.h>

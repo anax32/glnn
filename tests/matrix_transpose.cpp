@@ -1,6 +1,3 @@
-#include <Windows.h>
-#include <wingdi.h>
-
 #include "gl\defs.h"
 #include "gl\context.h"
 
