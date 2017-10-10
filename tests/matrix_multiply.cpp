@@ -11,19 +11,14 @@
 #include <vector>
 
 #include "glnnrt\gldnn_multiply.h"
+#include "test_bplate.h"
 
 int main(int argc, char** argv)
 {
-    std::map<std::string, bool> tests;
+    test_set_t test_set;
 
-    if (gl::context::create_windowless() == false)
-    {
-        std::cout << "gl::context::create failed" << std::endl;
-        return 1;
-    }
-
-    // glnn multiplication of square textures
-    {
+    // create the tests
+    test_set.tests["square_mult_correct"] = []() -> bool {
         gl::texture::texture_set_t		textures;
 
         std::vector<float>	A(8 * 8);
@@ -53,14 +48,12 @@ int main(int argc, char** argv)
 
         gl::texture::extract(textures["output"], output);
 
-        tests["square_mult_correct"] = std::all_of(
+        return std::all_of(
             std::begin(output),
             std::end(output),
             [](const float x) {return x == 8.0f; });
-    }
-
-    // glnn multiplication of non-square textures
-    {
+    };
+    test_set.tests["non_square_mult_correct"] = []() -> bool {
         gl::texture::texture_set_t		textures;
 
         std::vector<float>	A(4 * 2);
@@ -90,14 +83,12 @@ int main(int argc, char** argv)
 
         gl::texture::extract(textures["output"], output);
 
-        tests["non_square_mult_correct"] = std::all_of(
+        return std::all_of(
             std::begin(output),
             std::end(output),
             [](const float x) {return x == 2.0f; });
-    }
-
-    // glnn multiplication of square counter textures
-    {
+    };
+    test_set.tests["square_mult_counter_correct"] = []() -> bool {
         gl::texture::texture_set_t		textures;
 
         std::vector<float>	A(8 * 8);
@@ -146,14 +137,12 @@ int main(int argc, char** argv)
 
         gl::texture::extract(textures["output"], output);
 
-        tests["square_mult_counter_correct"] = std::equal(
+        return std::equal(
             std::begin(output),
             std::end(output),
             std::begin(exp));
-    }
-
-    // glnn multiplication of non-square counter textures
-    {
+    };
+    test_set.tests["non_square_mult_counter_correct"] = []() -> bool {
         gl::texture::texture_set_t		textures;
 
         std::vector<float>	A(4 * 2);
@@ -198,25 +187,27 @@ int main(int argc, char** argv)
 
         gl::texture::extract(textures["output"], output);
 
-        tests["non_square_mult_counter_correct"] = std::equal(
+         return std::equal(
             std::begin(output),
             std::end(output),
             std::begin(exp));
+    };
+
+    // create the gl context
+    if (gl::context::create_windowless() == false)
+    {
+        std::cout << "gl::context::create failed" << std::endl;
+        return 1;
     }
+
+    // run the tests
+    test_set.run ();
 
     gl::context::clean(NULL);
 
-    if (tests["square_mult_correct"] == false)
-        return 1;
+    // output which tests failed
+    test_set.report ();
 
-    if (tests["non_square_mult_correct"] == false)
-        return 2;
-
-    if (tests["square_mult_counter_correct"] == false)
-        return 3;
-
-    if (tests["non_square_mult_counter_correct"] == false)
-        return 4;
-
-    return 0;
+    // return the number of failures
+    return test_set.fail_count ();
 }
