@@ -11,15 +11,9 @@ public:
     tests_t         tests;
     results_t       results;
 
-    void run ()
-    {
-        results.clear();
-
-        for (auto& t : tests)
-        {
-            results[t.first] = t.second();
-        }
-    }
+    test_set_t (const tests_t& initial_tests)
+        : tests (initial_tests)
+    {}
 
     void report () const
     {
@@ -41,6 +35,18 @@ public:
         {
             return p.second != true;
         });
+    }
+
+    auto run() -> int
+    {
+        results.clear();
+
+        for (auto& t : tests)
+        {
+            results[t.first] = t.second();
+        }
+
+        return fail_count();
     }
 };
 #endif
