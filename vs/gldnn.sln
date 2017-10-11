@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrix_multiply", "matrix_m
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrix_hadamard", "matrix_hadamard.vcxproj", "{A79BD462-0BF6-4C31-8375-C25A9AABF0EC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrix_addition", "matrix_addition.vcxproj", "{0866ADE3-9375-4C5B-9E88-D9D8DFA472E9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrix_subtraction", "matrix_subtraction.vcxproj", "{2447712C-1FE3-4225-AB62-2B139DDB05BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,6 +37,14 @@ Global
 		{A79BD462-0BF6-4C31-8375-C25A9AABF0EC}.Debug|x64.Build.0 = Debug|x64
 		{A79BD462-0BF6-4C31-8375-C25A9AABF0EC}.Release|x64.ActiveCfg = Release|x64
 		{A79BD462-0BF6-4C31-8375-C25A9AABF0EC}.Release|x64.Build.0 = Release|x64
+		{0866ADE3-9375-4C5B-9E88-D9D8DFA472E9}.Debug|x64.ActiveCfg = Debug|x64
+		{0866ADE3-9375-4C5B-9E88-D9D8DFA472E9}.Debug|x64.Build.0 = Debug|x64
+		{0866ADE3-9375-4C5B-9E88-D9D8DFA472E9}.Release|x64.ActiveCfg = Release|x64
+		{0866ADE3-9375-4C5B-9E88-D9D8DFA472E9}.Release|x64.Build.0 = Release|x64
+		{2447712C-1FE3-4225-AB62-2B139DDB05BC}.Debug|x64.ActiveCfg = Debug|x64
+		{2447712C-1FE3-4225-AB62-2B139DDB05BC}.Debug|x64.Build.0 = Debug|x64
+		{2447712C-1FE3-4225-AB62-2B139DDB05BC}.Release|x64.ActiveCfg = Release|x64
+		{2447712C-1FE3-4225-AB62-2B139DDB05BC}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

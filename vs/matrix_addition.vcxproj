@@ -12,9 +12,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A79BD462-0BF6-4C31-8375-C25A9AABF0EC}</ProjectGuid>
+    <ProjectGuid>{0866ADE3-9375-4C5B-9E88-D9D8DFA472E9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>matrix_hadamard</RootNamespace>
+    <RootNamespace>matrix_addition</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -86,7 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\tests\matrix_hadamard.cpp" />
+    <ClCompile Include="..\tests\matrix_addition.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
